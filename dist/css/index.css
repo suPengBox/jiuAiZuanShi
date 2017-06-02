@@ -239,7 +239,6 @@ nav {
   #slideRing .box {
     width: 1096px;
     height: 193px;
-    border: 1px solid black;
     position: relative;
     overflow: hidden;
     margin: 0 auto; }
@@ -258,26 +257,24 @@ nav {
         height: 193px;
         width: 240px;
         margin-top: 0px; }
-        #slideRing ul li img .pp {
-          margin-top: -12px; }
   #slideRing i {
     display: block;
     height: 51px;
     width: 37px;
-    border: 1px solid black;
     position: absolute;
     left: 0px;
     top: 170px;
-    background: url(../img/icon_prev.jpg) no-repeat -37px 0; }
+    background: url(../img/icon_prev.jpg) no-repeat -37px 0;
+    cursor: pointer; }
   #slideRing b {
     display: block;
     height: 51px;
     width: 37px;
-    border: 1px solid black;
     position: absolute;
     right: 0px;
     top: 170px;
-    background: url(../img/icon_prev.jpg) no-repeat 0 -51px; }
+    background: url(../img/icon_prev.jpg) no-repeat 0 -51px;
+    cursor: pointer; }
 
 #Ring-kinds {
   height: 177px;
@@ -543,4 +540,34 @@ footer {
           height: 35px;
           width: 110px; }
 
-/*# sourceMappingURL=index.css.map */
+#warn {
+  width: 58px;
+  height: 116px;
+  position: fixed;
+  right: 0;
+  top: 320px; }
+  #warn i {
+    display: block;
+    height: 58px;
+    width: 58px;
+    background: url(../dist/img/code_bg.jpg) no-repeat; }
+    #warn i p {
+      height: 117px;
+      width: 117px;
+      background: url(../dist/img/code_03.jpg) no-repeat;
+      position: absolute;
+      top: 0px;
+      left: -117px;
+      display: none; }
+    #warn i:hover p {
+      display: block; }
+
+#top {
+  height: 40px;
+  width: 40px;
+  position: fixed;
+  right: 0;
+  bottom: 50px;
+  background: url(../img/s_totop.jpg) no-repeat 0 0; }
+  #top:hover {
+    background-position: -40px 0; }

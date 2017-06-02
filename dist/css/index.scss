@@ -126,19 +126,18 @@ header{
 #slideRing{
     position: relative;
     h3{text-align: center;font: 22px/130px "";}
-     .box{width: 1096px;height: 193px;border: 1px solid black;position: relative;overflow: hidden;margin: 0 auto;}
+     .box{width: 1096px;height: 193px;position: relative;overflow: hidden;margin: 0 auto;}
     ul{
         width: 2192px;height: 193px;display: flex;justify-content: space-between;position: absolute;top: 0;left: 0;
         li{
             margin: 0 17px;
             img{
-                .pp{margin-top:-12px;}
                 display: block;height: 193px;width: 240px;margin-top:0px;
                 }
         }
     }
-    i{display:block;height: 51px;width: 37px;border: 1px solid black;position: absolute;left:0px;top:170px;background: url(../img/icon_prev.jpg) no-repeat -37px 0;}
-    b{display:block;height: 51px;width: 37px;border: 1px solid black;position: absolute;right:0px;top:170px;background: url(../img/icon_prev.jpg) no-repeat 0 -51px;}
+    i{display:block;height: 51px;width: 37px;position: absolute;left:0px;top:170px;background: url(../img/icon_prev.jpg) no-repeat -37px 0; cursor: pointer;}
+    b{display:block;height: 51px;width: 37px;position: absolute;right:0px;top:170px;background: url(../img/icon_prev.jpg) no-repeat 0 -51px;cursor: pointer;}
 }
 
 

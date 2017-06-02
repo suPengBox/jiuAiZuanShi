@@ -1,8 +1,6 @@
 require(["jquery"],function(){
-	//header-top我的鸟巢下拉框
-	
+	//下拉框
 	$(".nav").css("display","none");
-	
 	$(".nav").parent().hover(function(){
 		$(this).find(".nav").css("display","block");
 	},function(){
@@ -10,7 +8,6 @@ require(["jquery"],function(){
 	})
 	
 	//nav选项卡
-	
 	$("#nav1").on("mouseover",".bb",function(){
 		$(this).parent().next().css("display","block")
 		$(this).addClass("active");
@@ -29,25 +26,5 @@ require(["jquery"],function(){
 		$(this).css("display","block")
 	})
 	
-	//产品选项卡
-	$("#product-nav li").hover(function(){
-		$(this).addClass("active");
-		let index=$(this).index();
-		$("#product-img dd").eq(index).addClass("show").siblings().removeClass("show")
-	},function(){
-		$(this).removeClass("active");
-	})
-	
-	//向上
-	$("#top").click(function(){		
-		$('html,body').animate({scrollTop:0},'slow');
-	})
-	
+
 })
-
-
-
-
-
-
-

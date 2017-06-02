@@ -2,9 +2,9 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>商品列表</title>	
 		<link rel="stylesheet" href="css/public.css" />
-		<link rel="stylesheet" href="css/login.css" />
+		<link rel="stylesheet" href="css/goodlist.css" />
 	</head>
 	<body>
 		<div id="header_top">
@@ -50,28 +50,126 @@
 		<header>
 			<div class="marign clear">
 				<a class="header_l" href="#"><img src="img/logo.png" class="logo"/></a>
+				<div class="header_r clear">
+					<div class="serach">
+						<input type="text" />
+						<span class="serach_r"></span>
+					</div>
+					<a href="#" class="yuYue">来店预约</a>
+				</div>
 			</div>
 		</header>
 		
+		<nav>
+			<ul class="marign" id="nav1">
+				<li><a href="#">首页</a></li>
+				<li class="bb"><a href="#">钻石</a></li>
+				<li class="bb"><a href="#">婚戒</a></li>
+				<li class="bb"><a href="#">对戒</a></li>
+				<li class="bb"><a href="#">配饰</a></li>
+				<li class="bb"><a href="#">定制</a></li>
+				<li class="bb"><a href="#">体验中心</a></li>
+				<li><a href="#">品牌故事</a></li>
+				<li><a href="#">鸟巢论坛</a></li>	
+			</ul>
+			<div class="next-select">
+				<dl class="marign" id="content">
+					<dd class="show">1</dd>
+					<dd >2</dd>
+					<dd >3</dd>
+					<dd >4</dd>
+					<dd >5</dd>
+					<dd >6</dd>
+				</dl>
+			</div>
+		</nav>
 		<section>
-			<div class="marign">
-				<div class="section-r">
-					<h3>会员登录<a href="#">快速注册</a></h3>
-					<div class="login">
-						<input type="text" id="userName" placeholder="用户名"/><br/>
-						<input type="password" id="psw" placeholder="密码"/>
-						<div class="check">
-							<input type="checkbox" id="checkbox"/><span>自动登录</span>
-							<a href="#">忘记密码</a>
-						</div>
-						<input type="submit" value="登录" id="submitBtn"/>	
+			<div id="banner">
+				<div class="marign">
+					<a href="#">首页</a><span>&gt; 对戒</span>
+				</div>
+			</div>
+			
+			<div id="show" class="marign clear">
+				<div class="show-l">
+					<div class="show-l-t">
 						<ul>
-							<li><a href="#"></a></li>
-							<li><a href="#"></a></li>
-							<li><a href="#"></a></li>
-							<li><a href="#"></a></li>
+							<li>
+								<p><span></span><a href="#">钻石</a></p>
+								<dl>
+									<dd><a href="#">GIA钻石</a></dd>
+									<dd><a href="#">30分钻石</a></dd>
+									<dd><a href="#">50分钻石</a></dd>
+									<dd><a href="#">北极光钻石</a></dd>
+								</dl>
+							</li>
+							<li>
+								<p><span></span><a href="#">钻戒</a></p>
+								<dl>
+									<dd><a href="#">铂金钻戒</a></dd>
+									<dd><a href="#">30分钻戒</a></dd>
+									<dd><a href="#">50分钻戒</a></dd>
+									<dd><a href="#">70分钻戒</a></dd>
+									<dd><a href="#">克拉钻戒</a></dd>
+								</dl>
+							</li>
+							<li>
+								<p><span></span><a href="#">对戒</a></p>
+								<dl>
+									<dd><a href="#">铂金对戒</a></dd>
+									<dd><a href="#">18k金对戒</a></dd>
+								</dl>
+							</li>
+							<li>
+								<p><span></span><a href="#">配饰</a></p>
+								<dl>
+									<dd><a href="#">吊坠</a></dd>
+									<dd><a href="#">耳钉</a></dd>
+									<dd><a href="#">套链</a></dd>
+									<dd><a href="#">项链</a></dd>
+									<dd><a href="#">手链</a></dd>
+								</dl>
+							</li>
 						</ul>
 					</div>
+					<div class="show-l-c">
+						<h3>热卖推荐</h3>
+						<a href="#">
+							<div class="img">
+								<img src="img/aside1 (1).jpg"/>
+							</div>
+							<p>
+								爱河<br />
+								<span>¥4070</span><b>售出</b><i>1595</i>
+							</p>
+						</a>
+						<a href="#">
+							<div class="img">
+								<img src="img/aside1 (2).jpg"/>
+							</div>
+							<p>
+								相互<br />
+								<span>¥5500</span><b>售出</b><i>64</i>
+							</p>
+						</a>
+						<a href="#">
+							<div class="img">
+								<img src="img/aside1 (3).jpg"/>
+							</div>
+							<p>
+								丝丝绒情<br />
+								<span>¥4850</span><b>售出</b><i>788</i>
+							</p>
+						</a>
+					</div>
+					<div class="show-l-b">
+						<img src="img/last1 (1).jpg" />
+						<img src="img/last1 (2).jpg" />
+						<img src="img/last1 (3).jpg" />
+					</div>
+				</div>
+				<div class="show-r">
+					
 				</div>
 			</div>
 		</section>
@@ -182,4 +280,4 @@
 		</div>
 	</body>
 </html>
-<script type="text/javascript" src="js/require.js" data-main = "js/login"></script>
+<script type="text/javascript" src="js/require.js" data-main = "js/goodlist"></script>
