@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<link rel="stylesheet" href="css/public.css" />
-		<link rel="stylesheet" href="css/login.css" />
+		<link rel="stylesheet" href="css/zhuce.css" />
 	</head>
 	<body>
 		<div id="header_top">
@@ -56,22 +56,23 @@
 		<section>
 			<div class="marign">
 				<div class="section-r">
-					<h3>会员登录<a href="#">快速注册</a></h3>
+					<h3>会员登录<a href="#">已有账号<i>请登录</i></a></h3>
 					<div class="login">
-						<input type="text" id="userName" placeholder="用户名"/><br/>
-						<input type="password" id="psw" placeholder="密码"/>
+						<input type="tel" placeholder="请输入手机号" id="tel"/><br/>
+						<span class="tel"></span>
+						<div class="checkcode clear">
+							<input type="text" id="code" placeholder="6位验证码"/>
+							<a href="#">免费获取手机验证码</a>
+						</div>
+						<span class="code"></span>
+						<input type="password" id="pswMsg" placeholder="6-20位大小写字母，数字及'-'、'_'组合" /><br />
+						<span class="psw"></span>
+						<input type="password" id="repswMsg" placeholder="请再次输入密码" />
+						<span class="repsw"></span>
 						<div class="check">
-							<input type="checkbox" id="checkbox"/><span>自动登录</span>
-							<a href="#">忘记密码</a>
-						</div><br />
-						<span class="yanz">1</span>
-						<input type="submit" value="登录" id="submitBtn"/>	
-						<ul>
-							<li><a href="#"></a></li>
-							<li><a href="#"></a></li>
-							<li><a href="#"></a></li>
-							<li><a href="#"></a></li>
-						</ul>
+							<input type="checkbox" id="checkbox" />已阅读并同意<a href="#">《钻石小鸟用户服务协议》</a>
+						</div>
+						<input type="button" value="注册" id="submitBtn"/>
 					</div>
 				</div>
 			</div>
@@ -182,6 +183,5 @@
 		<div id="top">
 		</div>
 	</body>
-	111
 </html>
-<script type="text/javascript" src="js/require.js" data-main = "js/login"></script>
+<script type="text/javascript" src="js/require.js" data-main = "js/zhuce"></script>

@@ -11,28 +11,66 @@ require(["jquery"],function(){
 	$("#top").click(function(){		
 		$('html,body').animate({scrollTop:0},'slow');
 	})
-	//表单验证
 	
 	
-	//正则
+	
+	//注册
 	email   =/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/,
     pwd     = /^[\w]{8,32}$/,
     chn     = /^[\u0391-\uFFE5]+$/,
     idcard  = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/,
-    mobile  = /^13[0-9]{1}[0-9]{8}$|15[0-9]{1}[0-9]{8}$|18[0-9]{1}[0-9]{8}$|17[0-9]{1}[0-9]{8}$/,
-    //登录
-    $('#submitBtn').click(function(){
-    	var username =  $("[type='text']").val();
-    	var password = $("[type='password']").val();
-    	if(!username){
-		  	$(".yanz").html("请输入你的用户名")
-		  	return false;
-		}
-    	if(!password){
-		  	$(".yanz").html("请输入你的密码")
-		  	return false;
-		}
+    mobile  = /^13[0-9]{1}[0-9]{8}$|15[0-9]{1}[0-9]{8}$|18[0-9]{1}[0-9]{8}$|17[0-9]{1}[0-9]{8}$/
+    
+    $("#tel").blur(function(){
+    	var phone=$(this).val()
+    	
     })
+	
+	
+	$("#submitBtn").click(function(){
+		$.post("php/regSave.php",{userName:$("#tel").val(),userPass:$("#pswMsg").val()},function(data){
+			location.href=("index.html")
+		})	
+	})
+	
+	
+	//正则
+	/*email   =/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/,
+    pwd     = /^[\w]{8,32}$/,
+    chn     = /^[\u0391-\uFFE5]+$/,
+    idcard  = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/,
+    mobile  = /^13[0-9]{1}[0-9]{8}$|15[0-9]{1}[0-9]{8}$|18[0-9]{1}[0-9]{8}$|17[0-9]{1}[0-9]{8}$/,
+    //登录  */
+
+  /*  $('#submitBtn').click(function(){ 	
+    	var usertel =  $("[type='tel']").val();
+    	var yanzcode =  $("[type='text']").val();
+    	var password = $("[type='password']").val(); 
+    	if(!usertel && !yanzcode && !password){
+    		$(".tel").html("请输入手机号");
+    		$(".code").html("请输入验证码");
+    		$(".psw").html("6-20位大小写字母，数字及'-'、'_'组合") ;
+    		return false
+    	}else{
+    		if(!usertel){
+    		$(".tel").html("请输入手机号");
+    		return false;
+	    	}
+	    	if(!yanzcode){
+			  	$(".code").html("请输入验证码")
+			  	return false;
+			}
+	    	if(!password){
+			  	$(".psw").html("6-20位大小写字母，数字及'-'、'_'组合") 
+			  	return false;
+			}
+    	}
+    })*/
+    
+    
+    
+    
+    
     //注册
 //	$('.step_next').on('click', function(){
 //	  var sirname = $("input[name='extend_field3']").val();

@@ -122,8 +122,8 @@ section {
           margin-top: 22px; }
         section .marign .section-r .login .check {
           width: 100%;
-          height: 57px;
-          padding: 24px 0 20px 0;
+          height: 24px;
+          padding: 24px 0 0 0;
           box-sizing: border-box; }
           section .marign .section-r .login .check #checkbox {
             float: left; }
@@ -133,6 +133,12 @@ section {
             float: left; }
           section .marign .section-r .login .check a {
             float: right; }
+        section .marign .section-r .login .yanz {
+          display: block;
+          height: 22px;
+          width: 100%;
+          color: #F6827A;
+          font: 12px/22px ""; }
         section .marign .section-r .login [type="submit"] {
           height: 34px;
           width: 274px;
@@ -242,11 +248,11 @@ footer {
     display: block;
     height: 58px;
     width: 58px;
-    background: url(../dist/img/code_bg.jpg) no-repeat; }
+    background: url(../img/code_bg.jpg) no-repeat; }
     #warn i p {
       height: 117px;
       width: 117px;
-      background: url(../dist/img/code_03.jpg) no-repeat;
+      background: url(../img/code_03.jpg) no-repeat;
       position: absolute;
       top: 0px;
       left: -117px;

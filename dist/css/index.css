@@ -550,11 +550,11 @@ footer {
     display: block;
     height: 58px;
     width: 58px;
-    background: url(../dist/img/code_bg.jpg) no-repeat; }
+    background: url(../img/code_bg.jpg) no-repeat; }
     #warn i p {
       height: 117px;
       width: 117px;
-      background: url(../dist/img/code_03.jpg) no-repeat;
+      background: url(../img/code_03.jpg) no-repeat;
       position: absolute;
       top: 0px;
       left: -117px;
