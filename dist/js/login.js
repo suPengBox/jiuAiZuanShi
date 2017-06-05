@@ -1,4 +1,4 @@
-require(["jquery"],function(){
+require(["jquery","cookieTools"],function(){
 	//下拉框
 	$(".nav").css("display","none");
 	$(".nav").parent().hover(function(){
@@ -11,8 +11,33 @@ require(["jquery"],function(){
 	$("#top").click(function(){		
 		$('html,body').animate({scrollTop:0},'slow');
 	})
-	//表单验证
-	
+	//cookie函数
+	//1.存cookie
+	/*function saveCookie(key,value,dayCount){
+	var d = new Date();
+		d.setDate(d.getDate()+dayCount);
+		document.cookie = key+"="+encodeURIComponent(value)+";expires="+d.toGMTString();
+	}
+	//2.得到cookie
+	function getCookie(key){
+	//1、获取cookie的内容；//color=red; userName=jzm; password=123; auserName=ppp
+	var str = decodeURIComponent(document.cookie);
+	//2、转换成数组
+	var arr = str.split("; ");
+	//3、循环数组找key
+	for(var i=0;i<arr.length;i++){
+		if(arr[i].indexOf(key+"=")==0){
+			return arr[i].substring((key+"=").length);
+		}
+	}
+	//4、返回
+	return "";
+	}
+	//删除cookie
+	function removeCookie(key){
+	//借用就是保存。
+	saveCookie(key,"007",-5);	
+	}*/
 	
 	//正则
 	email   =/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/,
@@ -21,18 +46,37 @@ require(["jquery"],function(){
     idcard  = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/,
     mobile  = /^13[0-9]{1}[0-9]{8}$|15[0-9]{1}[0-9]{8}$|18[0-9]{1}[0-9]{8}$|17[0-9]{1}[0-9]{8}$/,
     //登录
+  	
     $('#submitBtn').click(function(){
-    	var username =  $("[type='text']").val();
-    	var password = $("[type='password']").val();
-    	if(!username){
+    	var userName =  $("[type='text']").val();
+    	var passWord = $("[type='password']").val();
+    	if(!userName){
 		  	$(".yanz").html("请输入你的用户名")
-		  	return false;
-		}
-    	if(!password){
+		}else if(!passWord){
 		  	$(".yanz").html("请输入你的密码")
-		  	return false;
+		}else{
+			$.post("php/login.php",{userName:userName,passWord:passWord},function(data){
+				if(data=="true"){
+					//登录成功
+					//存cookie
+					saveCookie("userName",userName,7);
+					saveCookie("userPass",passWord,7);
+					alert("记住了你的密码登录。")
+					location.href=("index.html") 
+				}else{
+					$(".yanz").html("亲，你的账号或密码输入有误，请重新输入")
+				}
+			})	
 		}
     })
+    //获取cookie
+    $(function(){
+    	var userNameValue=getCookie("userName");
+    	var userPassValue=getCookie("userPass");
+		$("[type='text']").val(userNameValue);
+		$("[type='password']").val(userPassValue);
+    });
+    
     //注册
 //	$('.step_next').on('click', function(){
 //	  var sirname = $("input[name='extend_field3']").val();

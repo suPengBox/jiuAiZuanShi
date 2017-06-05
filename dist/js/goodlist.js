@@ -1,4 +1,25 @@
-require(["jquery"],function(){
+require(["jquery","cookieTools"],function(){
+	//获取cookie
+	//2.得到cookie
+	$(function(){
+		var userNameValue=getCookie("userName");
+    	var userPassValue=getCookie("userPass");	
+    	//alert(userNameValue);
+    	if(userNameValue!="" && userPassValue!=""){
+    		$(".header_top-l h1").html(userNameValue+"你好！你是<span style='color:#ff8a81'> 钻石 </span>会员");
+    		$(".header_top-l a").css("display","none");
+    		$(".header_top-l .quit").css("display","block");
+    	}
+	})
+	//退出登录
+	$(".quit").click(function(){
+		removeCookie("userName");
+		removeCookie("userPass");
+		$(".header_top-l a").css("display","block");
+    	$(".header_top-l .quit").css("display","none");
+    	$(".header_top-l h1").html("欢迎进入钻石小鸟官网");
+	})
+	
 	//下拉框
 	$(".nav").css("display","none");
 	$(".nav").parent().hover(function(){
@@ -34,10 +55,12 @@ require(["jquery"],function(){
 	let show=true;
 	$(".show-l-t ul").on("click","li p span",function(){
 		if(show){
-			$(this).parent().next().addClass("change")
+			$(this).parent().next().addClass("change");
+			$(this).addClass("bottom")
 			show=false;
 		}else{
 			$(this).parent().next().removeClass("change");
+			$(this).removeClass("bottom");
 			show=true;
 		}	
 	})
@@ -47,5 +70,25 @@ require(["jquery"],function(){
 	})
 	$('.show-l-c a img').mouseout(function(){
 		$(this).animate({width:"180px",height:"160px"},1000)
+	})
+	
+	//展开高级搜索
+	$(".show-r ul p").toggle(function(){
+
+		$(this).html("收起高级搜索").prev().addClass("show");
+	},function(){
+		$(this).html("展开高级搜索").prev().removeClass("show");
+	})
+	
+	
+	//图片淡入淡出
+
+	$(".show-r-c li a").mouseenter(function(){
+		$(this).children().eq(1).fadeTo("slow", 0);
+		$(this).children().eq(0).fadeTo("slow", 1);	
+	})
+	$(".show-r-c li a").mouseleave(function(){
+		$(this).children().eq(1).fadeTo("slow", 1);
+		$(this).children().eq(0).fadeTo("slow", 0);	
 	})
 })

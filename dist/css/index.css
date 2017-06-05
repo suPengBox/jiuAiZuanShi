@@ -19,6 +19,14 @@
       margin: 0 10px 0 10px;
       font: 12px/34px "微软雅黑";
       color: #333333; }
+    #header_top .header_top-l .quit {
+      display: none;
+      float: left;
+      margin: 0 10px 0 10px;
+      font: 12px/34px "微软雅黑";
+      color: #333333; }
+      #header_top .header_top-l .quit:hover {
+        color: #ff8a81; }
   #header_top .header_top-r ul {
     width: 406px;
     float: right;

@@ -1,4 +1,4 @@
-require(["jquery"],function(){
+require(["jquery","cookieTools"],function(){
 	//下拉框
 	$(".nav").css("display","none");
 	$(".nav").parent().hover(function(){
@@ -17,20 +17,82 @@ require(["jquery"],function(){
 	//注册
 	email   =/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/,
     pwd     = /^[\w]{8,32}$/,
+    pass    =/^[a-zA-Z][a-zA-Z0-9_-]{5,19}$/
     chn     = /^[\u0391-\uFFE5]+$/,
     idcard  = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/,
     mobile  = /^13[0-9]{1}[0-9]{8}$|15[0-9]{1}[0-9]{8}$|18[0-9]{1}[0-9]{8}$|17[0-9]{1}[0-9]{8}$/
-    
+    prove   =/^[a-zA-Z0-9]{6}$/
+      
+    var istrue=true;
     $("#tel").blur(function(){
-    	var phone=$(this).val()
-    	
+    	var phone=$(this).val();	
+		if(!mobile.test(phone)){
+				istrue=false;
+    			$(".tel").html("请输入正确的电话号")
+    		}else if(mobile.test(phone)){
+				$.get("php/register.php",{userName:phone},function(data){
+				if(data=="0"){
+					istrue=false;
+					$(".tel").html("该号码已注册")
+				}else{
+					istrue=true;
+					$(".tel").html("");
+				}
+			});	
+   		 }		
+    });
+    
+    $("#code").blur(function(){
+    	var code=$(this).val();
+    	if(!prove.test(code)){
+    		istrue=false;
+    		$(".code").html("验证码错误，请重新验证")
+    	}else if(prove.test(code)){
+    		istrue=true;
+    		$(".code").html("")
+    	}
     })
-	
-	
+    
+    $("#pswMsg").blur(function(){
+    	var psw=$(this).val();
+    	if(!pass.test(psw)){	
+    		istrue=false;
+    		$(".psw").html("6-20位大小写字母，数字及'-'、'_'组合");
+    	}else{
+    		istrue=true;
+    		$(".psw").html("")
+    	}	
+    })
+    
+    $("#repswMsg").blur(function(){
+    	var psw=$("#pswMsg").val();
+    	var repsw=$("#repswMsg").val();
+    	if(psw!=repsw){
+    		istrue=false;
+    		$(".repsw").html("两次密码输入不一致，请重新输入")
+    	}else{
+    		istrue=true;
+    		$(".repsw").html("");
+    	}	
+    })
 	$("#submitBtn").click(function(){
-		$.post("php/regSave.php",{userName:$("#tel").val(),userPass:$("#pswMsg").val()},function(data){
-			location.href=("index.html")
-		})	
+		var code=$("#code").val();
+		var phone=$("#tel").val();
+		var psw=$("#pswMsg").val();
+    	var repsw=$("#repswMsg").val();	
+		if(code=="" || phone=="" || psw=="" || repsw==""){	
+			$(".tel").html("请输入正确的电话号");
+			$(".code").html("验证码错误，请重新验证");
+			$(".psw").html("6-20位大小写字母，数字及'-'、'_'组合");		
+		}else{
+			if(istrue){
+				$.post("php/regSave.php",{userName:$("#tel").val(),userPass:$("#pswMsg").val()},function(data){
+					saveCookie("userName",phone,7);
+					saveCookie("userPass",psw,7);
+					location.href=("index.html")
+				})
+			}
+		}
 	})
 	
 	

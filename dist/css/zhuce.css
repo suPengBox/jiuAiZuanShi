@@ -169,7 +169,7 @@ section {
             font: 12px/13px "";
             color: #666666;
             float: left; }
-        section .marign .section-r .login [type="submit"] {
+        section .marign .section-r .login [type="button"] {
           height: 34px;
           width: 278px;
           border: none;
@@ -177,7 +177,8 @@ section {
           font: 12px/24px "";
           color: white;
           outline: none;
-          margin-top: 16px; }
+          margin-top: 16px;
+          cursor: pointer; }
 
 footer {
   height: 530px;

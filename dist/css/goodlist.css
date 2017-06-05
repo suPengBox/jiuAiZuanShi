@@ -19,6 +19,14 @@
       margin: 0 10px 0 10px;
       font: 12px/34px "微软雅黑";
       color: #333333; }
+    #header_top .header_top-l .quit {
+      display: none;
+      float: left;
+      margin: 0 10px 0 10px;
+      font: 12px/34px "微软雅黑";
+      color: #333333; }
+      #header_top .header_top-l .quit:hover {
+        color: #ff8a81; }
   #header_top .header_top-r ul {
     width: 406px;
     float: right;
@@ -193,6 +201,8 @@ section #show {
           background: url(../img/toright.jpg) no-repeat;
           margin-right: 10px;
           cursor: pointer; }
+          section #show .show-l ul li p span.bottom {
+            background: url(../img/tobottom.jpg) no-repeat; }
         section #show .show-l ul li p a {
           float: left; }
           section #show .show-l ul li p a:hover {
@@ -245,6 +255,155 @@ section #show {
   section #show .show-r {
     width: 950px;
     float: right; }
+    section #show .show-r .shang {
+      border-top: 1px solid black; }
+      section #show .show-r .shang li {
+        height: 40px;
+        border-bottom: 1px solid #e2e1e1;
+        font: 12px/40px ""; }
+        section #show .show-r .shang li i {
+          padding: 0 40px;
+          color: #333; }
+        section #show .show-r .shang li u {
+          padding: 0 27px;
+          color: #cccccc; }
+        section #show .show-r .shang li span {
+          padding-left: 26px; }
+        section #show .show-r .shang li a {
+          color: #666;
+          padding: 0 20px; }
+          section #show .show-r .shang li a:hover {
+            color: #F6827A; }
+      section #show .show-r .shang dl {
+        display: none; }
+        section #show .show-r .shang dl dd {
+          height: 40px;
+          border-bottom: 1px solid #e2e1e1;
+          font: 12px/40px ""; }
+          section #show .show-r .shang dl dd i {
+            padding: 0 40px;
+            color: #333; }
+          section #show .show-r .shang dl dd u {
+            padding: 0 27px;
+            color: #cccccc; }
+          section #show .show-r .shang dl dd span {
+            padding-left: 26px; }
+          section #show .show-r .shang dl dd a {
+            color: #666;
+            padding: 0 20px; }
+            section #show .show-r .shang dl dd a:hover {
+              color: #F6827A; }
+        section #show .show-r .shang dl.show {
+          display: block; }
+      section #show .show-r .shang p {
+        height: 24px;
+        width: 110px;
+        border: 1px solid #e2e1e1;
+        font: 12px/24px "";
+        color: #666;
+        text-align: center;
+        margin: -1px auto 0;
+        border-top: 1px solid white; }
+        section #show .show-r .shang p:hover {
+          color: #F6827A;
+          cursor: pointer; }
+    section #show .show-r .show-r-t {
+      height: 32px; }
+      section #show .show-r .show-r-t .ulis {
+        float: left;
+        height: 100%px;
+        width: 290px;
+        border: 1px solid #CCCCCC;
+        justify-content: center;
+        display: flex; }
+        section #show .show-r .show-r-t .ulis li {
+          width: 20%;
+          height: 100%;
+          text-align: center;
+          font: 12px/30px "";
+          background: #efefef url(../img/up1.png) no-repeat 45px center; }
+        section #show .show-r .show-r-t .ulis .active {
+          background: white url(../img/up2.png) no-repeat 45px center; }
+      section #show .show-r .show-r-t p {
+        height: 100%;
+        float: right;
+        text-align: center;
+        font: 12px/30px ""; }
+        section #show .show-r .show-r-t p i {
+          color: #f6827a;
+          font-weight: 700;
+          margin: 0 3px; }
+        section #show .show-r .show-r-t p b {
+          margin: 0 26px;
+          color: #CCCCCC; }
+    section #show .show-r .show-r-c {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap; }
+      section #show .show-r .show-r-c li {
+        height: 367px;
+        width: 300px;
+        margin-top: 23px;
+        position: relative;
+        text-align: center;
+        color: #999999;
+        line-height: 24px;
+        border-bottom: 1px solid #CCCCCC; }
+        section #show .show-r .show-r-c li .bb {
+          display: block;
+          height: 250px;
+          width: 100%;
+          position: relative; }
+        section #show .show-r .show-r-c li img {
+          height: 230px;
+          width: 230px;
+          position: absolute;
+          left: 35px;
+          top: 10px; }
+        section #show .show-r .show-r-c li u {
+          display: none;
+          height: 6px;
+          width: 100%;
+          background: #fdb2a4;
+          position: absolute;
+          bottom: 0; }
+        section #show .show-r .show-r-c li:hover u {
+          display: block; }
+        section #show .show-r .show-r-c li p {
+          font: 12px/24px ""; }
+          section #show .show-r .show-r-c li p:hover .aa {
+            color: #F6827A; }
+        section #show .show-r .show-r-c li i {
+          font: 13px/24px "";
+          color: #F6827A;
+          font-weight: 700;
+          padding-left: 5px; }
+        section #show .show-r .show-r-c li span {
+          color: #333333; }
+    section #show .show-r .show-r-b {
+      margin-top: 30px; }
+      section #show .show-r .show-r-b dl {
+        justify-content: flex-end;
+        display: flex; }
+        section #show .show-r .show-r-b dl dd {
+          height: 32px;
+          width: 32px;
+          border: 1px solid #CCCCCC;
+          text-align: center;
+          color: #000;
+          font: 12px/32px "";
+          margin-left: 10px; }
+          section #show .show-r .show-r-b dl dd:hover a {
+            color: #F6827A; }
+          section #show .show-r .show-r-b dl dd.active a {
+            color: #F6827A; }
+          section #show .show-r .show-r-b dl dd.right {
+            height: 33px;
+            width: 33px;
+            background: url(../img/returnL.jpg) no-repeat 0 0;
+            border: none; }
+            section #show .show-r .show-r-b dl dd.right:hover {
+              background-position: -33px 0; }
 
 footer {
   height: 530px;
@@ -322,11 +481,11 @@ footer {
     display: block;
     height: 58px;
     width: 58px;
-    background: url(../dist/img/code_bg.jpg) no-repeat; }
+    background: url(../img/code_bg.jpg) no-repeat; }
     #warn i p {
       height: 117px;
       width: 117px;
-      background: url(../dist/img/code_03.jpg) no-repeat;
+      background: url(../img/code_03.jpg) no-repeat;
       position: absolute;
       top: 0px;
       left: -117px;
