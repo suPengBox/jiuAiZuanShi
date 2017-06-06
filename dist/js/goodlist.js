@@ -1,4 +1,5 @@
 require(["jquery","cookieTools"],function(){
+
 	//获取cookie
 	//2.得到cookie
 	$(function(){
@@ -10,7 +11,43 @@ require(["jquery","cookieTools"],function(){
     		$(".header_top-l a").css("display","none");
     		$(".header_top-l .quit").css("display","block");
     	}
+    	
+    	//动态添加图片信息
+		//所有的标签动态添加
+		$.get("php/getGoodsList.php",function(data){
+			var d=eval(data)
+			var name,price,img1,img2;
+			for(var i in d){
+				id=d[i].goodsId;
+				name=d[i].goodsName;
+				price=d[i].goodsPrice;
+				img1=d[i].goodsImg;
+				img2=d[i].beiyong1;
+				//console.log(name)
+				$(".show-r-c").append(
+					"<li ord="+id+"><a href='#' class='bb'><img id='imgId01' src='"+img2+"' /><img id='imgId02' src='"+img1+"' /></a><p><a href='#' class='aa'>"+name+"</a></p><i>¥ "+price+"</i><br />售出  <span>3500</span><a class='talk' href='#'>评论</a> <span>274</span><u></u></li>"
+				);	
+			}	
+			$(".show-r-c li a").mouseenter(function(){
+				$(this).children().eq(1).fadeTo("slow", 0);
+				$(this).children().eq(0).fadeTo("slow", 1);	
+			});
+			$(".show-r-c li a").mouseleave(function(){
+				$(this).children().eq(1).fadeTo("slow", 1);
+				$(this).children().eq(0).fadeTo("slow", 0);	
+			});	
+		})		
 	})
+	
+	$(".show-r-c").on("click","li",function(){
+			var GoodsId=$(this).attr("ord"); 
+			saveCookie("GoodsId",GoodsId,7);
+			location.href=("goodDetails.html")
+		})
+	
+	
+	
+	
 	//退出登录
 	$(".quit").click(function(){
 		removeCookie("userName");
@@ -83,12 +120,5 @@ require(["jquery","cookieTools"],function(){
 	
 	//图片淡入淡出
 
-	$(".show-r-c li a").mouseenter(function(){
-		$(this).children().eq(1).fadeTo("slow", 0);
-		$(this).children().eq(0).fadeTo("slow", 1);	
-	})
-	$(".show-r-c li a").mouseleave(function(){
-		$(this).children().eq(1).fadeTo("slow", 1);
-		$(this).children().eq(0).fadeTo("slow", 0);	
-	})
+	
 })

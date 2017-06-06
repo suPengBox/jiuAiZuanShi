@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<title>商品列表</title>	
 		<link rel="stylesheet" href="css/public.css" />
-		<link rel="stylesheet" href="css/goodDetails.css" />
+		<link rel="stylesheet" href="css/shopCart.css" />
 	</head>
 	<body>
 		<div id="header_top">
@@ -20,7 +20,7 @@
 						<li>
 							<img src="img/header_box.png" />
 							<div class="goods_car clear">
-								<a href="shopCart.html">购物车</a>
+								<a href="#">购物车</a>
 								<span class="goods_count">0</span>
 								<span class="goods_select"></span>
 							</div>
@@ -51,12 +51,8 @@
 		<header>
 			<div class="marign clear">
 				<a class="header_l" href="#"><img src="img/logo.png" class="logo"/></a>
-				<div class="header_r clear">
-					<div class="serach">
-						<input type="text" />
-						<span class="serach_r"></span>
-					</div>
-					<a href="#" class="yuYue">来店预约</a>
+				<div class="header_r">
+					
 				</div>
 			</div>
 		</header>
@@ -84,101 +80,44 @@
 				</dl>
 			</div>
 		</nav>
-		<section>
-			<div id="banner">
-				<div class="marign">
-					<a href="index.html">首页 </a>&gt; <a href="goodlist.html"> 对戒</a><span>&gt; 纯镜</span>
-				</div>
-			</div>
-			<div id="show" class="marign clear">
-				<div class="show-l">
-					<div class="top">
-						
-					</div>
-					<div class="bottom">
-						<div class="nei">
-							<ul>
-								<li><img src="img/29652_6_.jpg"/></li>
-								<li><img src="img/29652_7_.jpg"/></li>
-								<li><img src="img/29652_80_.jpg"/></li>
-								<li><img src="img/29652_82_.jpg"/></li>
-								<li><img src="img/30873_4_.jpg"/></li>
-								<li><img src="img/29652_95_.jpg"></li>
-								<li><img src="img/30871_1_.jpg"/></li>
-								<li><img src="img/30873_1_.jpg"</li>
-							</ul>
-						</div>
-						<div class="toleft">
-							
-						</div>
-						<div class="toright">
-							
-						</div>
-					</div>
-				</div>
-				<article>
-					<div class="article-t">
-						<!--<p>纯镜</p>
-						价格<i>¥</i><span class="price">5330</span>售出<span class="sold">4554</span>评论<span class="discuss">274</span>
-						-->
-					</div>
-					<ul class="article-c">
-						<!--<li><i>品名</i><span>18k金钻石戒指</span></li>
-						<li><i>钻石</i><span>男戒&nbsp;主钻0颗&nbsp;0.00克拉&nbsp;女戒&nbsp;主钻15颗&nbsp;0.07克拉</span></li>
-						<li><i>配送</i><span>2017-07-10</span></li>-->
-					</ul>
-					<div class="article-b">
-						<div class="article-b-t">
-							材质
-							<dl>
-								<dd>铂950</dd>
-								<dd>黄18k金</dd>
-								<dd>红18k金</dd>
-								<dd>白18k金</dd>
-							</dl>
-						</div>
-						<div class="article-b-b clear">
-							<i>手寸</i>
-							<input type="text" id="nan" value="18" />
-							<div class="nan-list">
-								<span class="nan-size">13</span>
-								<span class="nan-size">14</span>
-								<span class="nan-size">15</span>
-								<span class="nan-size">16</span>
-								<span class="nan-size">17</span>
-								<span class="nan-size">18</span>
-								<span class="nan-size">19</span>
-								<span class="nan-size">20</span>
-							</div>
-							<input type="text" id="nv" value="12"/>
-							<div class="nv-list">
-								<span class="nv-size">7</span>
-								<span class="nv-size">8</span>
-								<span class="nv-size">9</span>
-								<span class="nv-size">10</span>
-								<span class="nv-size">11</span>
-								<span class="nv-size">12</span>
-								<span class="nv-size">13</span>
-								<span class="nv-size">14</span>
-								<span class="nv-size">15</span>
-							</div>
-						</div>
-					</div>
-					<div class="linking">
-						<span>1</span>
-						<input type="button" id="goShop" value="加入购物车" />
-						<div class="share">
-							<span>分享</span>
-							<ul>
-								<li><a href="#"></a></li>
-								<li><a href="#"></a></li>
-								<li><a href="#"></a></li>
-							</ul>
-						</div>
-					</div>
-				</article>
-			</div>
-
+		<section class="marign">
+			<table>
+				<thead>
+					<tr>
+						<td>商品</td>
+						<td>单价</td>
+						<td>数量</td>
+						<td>小计</td>
+						<td>操作</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>45</td>
+						<td>
+							<input type="button" value="-" class="cut1"/><span>0</span><input id="addBtn01" type="button" value="+" class="add1"/>
+						</td>
+						<td>45</td>
+						<td>删除</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>45</td>
+						<td>
+							<input type="button" value="-" class="cut2"/><span>1</span><input id="addBtn01" type="button" value="+" class="add2"/>
+						</td>
+						<td>45</td>
+						<td>删除</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td>清除购物车</td>
+						<td colspan="4">订单总额<i id="count"></i></td>
+					</tr>
+				</tfoot>
+			</table>
 		</section>
 		
 		<footer>
@@ -287,4 +226,4 @@
 		</div>
 	</body>
 </html>
-<script type="text/javascript" src="js/require.js" data-main = "js/goodDetails"></script>
+<script type="text/javascript" src="js/require.js" data-main = "js/shopCart"></script>
