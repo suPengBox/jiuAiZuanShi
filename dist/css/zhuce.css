@@ -49,6 +49,7 @@
         border: 1px solid #f8e3df;
         border-bottom: none; }
         #header_top .header_top-r ul li:nth-child(3) dl {
+          display: none;
           width: 85px;
           height: 72px;
           position: absolute;

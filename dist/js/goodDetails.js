@@ -29,14 +29,32 @@ require(["jquery","cookieTools"],function(){
     	})
     	
     	//添加到购物车
-    	var goodsCount=$("#goShop").prev().text();
+    	var goodsCount;
+    	var cal=0;
+		$("#addBtn02").click(function(){
+			cal++;
+			$(this).prev().html(cal);
+			goodsCount=$(".cal span").text();
+		})
+		$("#addBtn01").click(function(){
+			if(cal>=1){
+				cal--;
+				$(this).next().html(cal)
+				goodsCount=$(".cal span").text();
+			}	
+		})
     		
 		$("#goShop").click(function(){
-			$.get("php/addShoppingCart.php",{"vipName":userNameValue,"goodsId":GoodsId,"goodsCount":goodsCount},function(data){
+			if(userNameValue!=""){
+				$.get("php/addShoppingCart.php",{"vipName":userNameValue,"goodsId":GoodsId,"goodsCount":goodsCount},function(data){
 					if(data=="1"){
 						alert("恭喜你添加成功")
+						location.href=("shopCart.html")
 					}
-			})	
+				})	
+			}else{
+				alert("请先登录您的账号")
+			}
 		})
     	
 	})
@@ -49,6 +67,7 @@ require(["jquery","cookieTools"],function(){
     	$(".header_top-l h1").html("欢迎进入钻石小鸟官网");
 	})
 	
+	//点击加减号
 	
 	
 	//下拉框

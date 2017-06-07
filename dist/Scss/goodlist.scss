@@ -26,6 +26,7 @@
                 &:nth-child(3){
                     margin: 0;padding: 0 12px;width: 59px; height: 33px;border: 1px solid #f8e3df; border-bottom:none;                  
                     dl{
+                        display: none;
                         width: 85px;height: 72px;position: absolute;top:34px;left: 177px;border: 1px solid #f99;border-top: 0;padding-left: 11px;box-sizing: border-box;background: white;
                         a{
                             color:#333333;font: 12px/24px "";

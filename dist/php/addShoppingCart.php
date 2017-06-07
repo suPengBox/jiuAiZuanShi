@@ -13,18 +13,30 @@
 	mysql_select_db("mydb1702",$conn);
 	
 	//3）、传输数据（过桥）
-	//insert语句
-	$sqlstr = "insert into shoppingCart values('".$vipName."','".$goodsId."','".$goodsCount."')";
-	//echo($sqlstr);
-	
-	$result=true;
-	if(!mysql_query($sqlstr,$conn)){
-		$result=false;
+	$Sql="select * from shoppingCart where vipName='".$vipName."' and  goodsId='".$goodsId."'";	
+	$result=mysql_query($Sql,$conn);	
+	$rows=mysql_fetch_array($result);
+	//如果有值当值 执行修改
+	if($rows){
+		$count=$rows['goodsCount'];
+		$goodsCount=$goodsCount+$count;
+			//如果有执行添加事件
+			$sqlstr = "update shoppingCart set goodsCount=".$goodsCount." where vipName='".$vipName."' and goodsId='".$goodsId."'";			
+			$result=1;
+			if(!mysql_query($sqlstr,$conn)){
+				$result=0;
+			}
+			mysql_close($conn);
+			echo $result;
+	}else{
+		//如果没有执行添加事件
+		$sqlstr = "insert into shoppingCart values('".$vipName."','".$goodsId."',".$goodsCount.")";
+
+		$result=1;
+		if(!mysql_query($sqlstr,$conn)){
+				$result=0;
+		}
+		mysql_close($conn);
+		echo $result;
 	}
-	
-	//4）、关闭连接（拆桥）
-	mysql_close($conn);
-	
-	//3、给客户端返回（响应）一个注册成功！
-	echo $result;
 ?>

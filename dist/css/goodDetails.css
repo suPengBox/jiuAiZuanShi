@@ -57,6 +57,7 @@
         border: 1px solid #f8e3df;
         border-bottom: none; }
         #header_top .header_top-r ul li:nth-child(3) dl {
+          display: none;
           width: 85px;
           height: 72px;
           position: absolute;
@@ -320,7 +321,8 @@ section #show {
           height: 79px;
           z-index: 2;
           overflow-y: scroll;
-          border-top: none; }
+          border-top: none;
+          background-color: white; }
           section #show article .article-b .article-b-b .nan-list span {
             display: inline-block;
             width: 100%;
@@ -338,7 +340,8 @@ section #show {
           height: 79px;
           z-index: 2;
           overflow-y: scroll;
-          border-top: none; }
+          border-top: none;
+          background-color: white; }
           section #show article .article-b .article-b-b .nv-list span {
             display: inline-block;
             width: 100%;
@@ -346,6 +349,40 @@ section #show {
             font: 12px/29px ""; }
             section #show article .article-b .article-b-b .nv-list span:hover {
               color: #000; }
+    section #show article .cal {
+      height: 32px;
+      width: 100%; }
+      section #show article .cal #addBtn01 {
+        float: left;
+        height: 30px;
+        width: 30px;
+        border: none;
+        background: #999999;
+        text-align: center;
+        color: #FFFFFF;
+        outline: none;
+        cursor: pointer; }
+      section #show article .cal #addBtn02 {
+        float: left;
+        height: 30px;
+        width: 30px;
+        border: none;
+        background: #999999;
+        text-align: center;
+        color: #FFFFFF;
+        outline: none;
+        cursor: pointer; }
+      section #show article .cal input:hover {
+        opacity: 0.8; }
+      section #show article .cal span {
+        float: left;
+        display: block;
+        height: 28px;
+        border: 1px solid black;
+        width: 40px;
+        text-align: center;
+        margin: 0 5px;
+        font: 12px/28px ""; }
     section #show article .linking input {
       width: 138px;
       height: 32px;
@@ -355,7 +392,7 @@ section #show {
       font: 12px/32px "";
       border: none;
       cursor: pointer;
-      margin: 53px 0 16px 0; }
+      margin: 15px 0 16px 0; }
     section #show article .linking .share {
       height: 18px;
       margin-top: 15px; }

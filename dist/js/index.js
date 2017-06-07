@@ -2,10 +2,9 @@ require(["banner","jquery","cookieTools"],function(banner){
 	//获取cookie
 	//2.得到cookie
 	$(function(){
-		var userNameValue=getCookie("userName");
-    	var userPassValue=getCookie("userPass");	
+		var userNameValue=getCookie("userName");	
     	//alert(userNameValue);
-    	if(userNameValue!="" && userPassValue!=""){
+    	if(userNameValue!=""){
     		$(".header_top-l h1").html(userNameValue+"你好！你是<span style='color:#ff8a81'> 钻石 </span>会员");
     		$(".header_top-l a").css("display","none");
     		$(".header_top-l .quit").css("display","block");
@@ -14,7 +13,6 @@ require(["banner","jquery","cookieTools"],function(banner){
 	//退出登录
 	$(".quit").click(function(){
 		removeCookie("userName");
-		removeCookie("userPass");
 		$(".header_top-l a").css("display","block");
     	$(".header_top-l .quit").css("display","none");
     	$(".header_top-l h1").html("欢迎进入钻石小鸟官网");

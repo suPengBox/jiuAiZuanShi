@@ -3,9 +3,8 @@ require(["jquery","cookieTools"],function(){
 	//2.得到cookie
 	$(function(){
 		var userNameValue=getCookie("userName");
-    	var userPassValue=getCookie("userPass");	
     	//alert(userNameValue);
-    	if(userNameValue!="" && userPassValue!=""){
+    	if(userNameValue!=""){
     		$(".header_top-l h1").html(userNameValue+"你好！你是<span style='color:#ff8a81'> 钻石 </span>会员");
     		$(".header_top-l a").css("display","none");
     		$(".header_top-l .quit").css("display","block");
@@ -16,11 +15,49 @@ require(["jquery","cookieTools"],function(){
     	var nvInc=getCookie("nvInc");
     	
     	$.get("php/getShoppingCart.php",{"vipName":userNameValue},function(data){
+    		var d=eval(data);
+    		//创建表格
+    		var totalMoney=0;
+    		$("thead").append("<tr><td>商品</td><td>定制内容</td><td>单价</td><td>数量</td><td>小计</td><td>操作</td></tr>");
+    		for(var i in d){
+    		     var count=d[i].goodsSum;
+    			 var id=d[i].goodsId;
+    			 var img=d[i].goodsImg;
+    			 var name=d[i].goodsName;
+    			 var kind=d[i].goodsDesc;
+    			 var price=d[i].goodsPrice;
+    			 totalMoney+=count*price;
+    			 var tr="<tr><td><img src='"+img+"' /><i>"+name+"</i><span>"+kind+"编号:<u>"+id+"</u></span></td><td><span>材质："+goodsType+"&nbsp;</span><i>手寸： 男"+boyInc+",&nbsp;女："+nvInc+"</i></td><td>"+price+"</td><td>"+count+"</td><td>"+count*price+"</td><td>删除</td></tr>";
+    			$("tbody").append(tr);
+    		}
+    		$("tfoot").append("<tr><td>清除购物车</td><td colspan='5'>订单总额<i id='count'>"+totalMoney+"</i></td></tr>");	
     		
-    		
-    	})
-    	
+    		//删除商品
+    		$("tr").on("click","td:last",function(){
+				console.log(1);
+	    		$.get("php/deleteGoods.php",{"vipName":userNameValue,"goodsId":$(this).parent().children().eq(0).children().last().children().html()},function(data){
+	    				if(data=="1"&&confirm("你确定要铲平它吗？")){
+	    					alert("删除成功！")
+	    					location.href=("shopCart.html");
+	    				}
+	    		})
+			})	
+			
+			//
+			if($("tbody tr").length==0){
+				$("section").css("display","none");
+				$("aside").css("display","block");
+			}else{
+				$("section").css("display","block");
+				$("aside").css("display","none");
+			}
+    	})	
+		
+		
 	})
+	
+	
+	
 	//退出登录
 	$(".quit").click(function(){
 		removeCookie("userName");
@@ -28,6 +65,8 @@ require(["jquery","cookieTools"],function(){
 		$(".header_top-l a").css("display","block");
     	$(".header_top-l .quit").css("display","none");
     	$(".header_top-l h1").html("欢迎进入钻石小鸟官网");
+    	$("section").css("display","none");
+		$("aside").css("display","block");
 	})
 	
 	//下拉框
@@ -81,37 +120,5 @@ require(["jquery","cookieTools"],function(){
 	$(".nan-list").mouseleave(function(){
 		$(this).css("display","none");
 	})
-	
-	//保存 商品名称，单价，数量
-	//1.加法运算
-	var count=0;
-	$('[class="add1"]').on("click",function(){
-		$(this).prev().html(count++);
-		var per=$(this).parent().prev().text();
-		var calmoney=parseInt(per)*count;
-		$(this).parent().next().text(calmoney);
-		
-	})
-	$('[class="add1"]').prev().prev().click(function(){
-			$(this).next().html(count--);
-			var per=$(this).parent().prev().text();
-			var calmoney=parseInt(per)*count;
-			$(this).parent().next().text(calmoney);
-			
-	})
-	
-	
-	
-	var tab=1;
-	$('[class="add2"]').on("click",function(){
-		var per=$(this).parent().prev().text();
-		$(this).prev().text(tab);
-		var calmoney=parseInt(per)*tab;
-		$(this).parent().next().text(calmoney);
-		tab++;
-		//calmoney=per*count;
-	})
-	
-	
 	
 })
