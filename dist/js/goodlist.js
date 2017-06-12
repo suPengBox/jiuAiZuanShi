@@ -4,9 +4,9 @@ require(["jquery","cookieTools"],function(){
 	//2.得到cookie
 	$(function(){
 		var userNameValue=getCookie("userName");
-    	var userPassValue=getCookie("userPass");	
+    	//var userPassValue=getCookie("userPass");	
     	//alert(userNameValue);
-    	if(userNameValue!="" && userPassValue!=""){
+    	if(userNameValue!=""){
     		$(".header_top-l h1").html(userNameValue+"你好！你是<span style='color:#ff8a81'> 钻石 </span>会员");
     		$(".header_top-l a").css("display","none");
     		$(".header_top-l .quit").css("display","block");

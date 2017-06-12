@@ -90,6 +90,9 @@ section{
                     span{float: right;}
                 }
                 &:last-child{cursor: pointer;}
+                input[value="-"]{height: 22px;width: 22px; float: left;border: none;background-color: #F6827A;outline: none;cursor: pointer;margin-left: 60px;}
+                &:nth-child(4) span{float:left;height: 20px;width: 20px;margin: 0 5px;border: 1px solid black;text-align: center;font: 12px/20px "";}
+                input[value="+"]{height: 22px;width: 22px; float: left;border: none;background-color: #F6827A;outline: none;cursor: pointer;}
             }
             
            // span{display:inline-block;height:20px;width:20px;border:2px solid #000;margin:0 5px;}
@@ -102,12 +105,13 @@ section{
              
         }
     }
-    input[type="button"]{
+    #giveMoney{
         height: 32px;width: 132px;outline: none;background: #ff8a81;border: none;cursor: pointer;float: right;margin-top:50px;font: 13px/32px "";color: #fff;
     }
 }
 
 aside{
+    display: none;
     background: url(../img/shopcarbgpic.jpg) no-repeat;height: 371px;padding: 60px 0;border-top:60px solid #fff;
     .jump{
         height: 100px;width: 280px;float: right;margin: 145px 140px 0 0;text-align: center;

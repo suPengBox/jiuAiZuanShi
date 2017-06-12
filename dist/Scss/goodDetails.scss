@@ -95,26 +95,36 @@ section{
         height: 576px;padding:26px 0 86px 68px;box-sizing: border-box;
         .show-l{
             float:left;height: 408px;width: 420px;margin-top: 56px;
-            .top{height: 315px;width:100%;border: 1px solid black;margin-bottom: 25px;}
+            .top{
+                height: 315px;width:100%;margin-bottom: 25px;
+                ul{
+                    height: 100%;width: 100%;position: relative;
+                    li{                       
+                        position: absolute;top: 0;left: 0;display: none;
+                        img{height: 315px;width: 420px;display: block;}
+                        &.show{display: block;}
+                    }
+                }
+            }
             
             .bottom{
-                height: 65px;width: 350px;margin: 0 auto;border: 1px solid #f99;position: relative;
+                height: 65px;width: 350px;margin: 0 auto;position: relative;
                 .nei{
-                    height: 62px;width: 270px;margin: 1px auto;background: #fcf;position: relative;overflow: hidden;
+                    height: 62px;width: 270px;margin: 1px auto;position: relative;overflow: hidden;
                     ul{
                         width: 540px;height: 60px;display: flex;justify-content: space-between;position: absolute;left: 2px;top: 0;
                         li{
-                           height: 60px;width: 60px;border: 1px solid black;
+                           height: 60px;width: 60px;
                            img{height: 60px;width: 60px;display: block}
                         }
                     }
                 }
-                .toleft{height:62px;width:12px;border:1px solid black;position:absolute;top: 0;left: 10px;background: url(../img/btn_prev.jpg) no-repeat center;cursor: pointer;}
-                .toright{height:62px;width:12px;border:1px solid black;position:absolute;top: 0;left: 327px;background: url(../img/btn_next.jpg) no-repeat center;cursor: pointer;}   
+                .toleft{height:62px;width:12px;position:absolute;top: 0;left: 10px;background: url(../img/btn_prev.jpg) no-repeat center;cursor: pointer;display: none;}
+                .toright{height:62px;width:12px;position:absolute;top: 0;left: 327px;background: url(../img/btn_next.jpg) no-repeat center;cursor: pointer;}   
             }
         }    
         article{
-            float: right;width: 535px;height: 100%;border: 1px solid black;
+            float: right;width: 535px;height: 100%;
             .article-t{
                 font: 12px/72px "";color: #999999;border-bottom: 1px solid #CCCCCC;
                 p{font:21px/21px "";color: #000;}

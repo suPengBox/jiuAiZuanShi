@@ -1,4 +1,4 @@
-require(["jquery","cookieTools"],function(){
+require(["jquery","cookieTools","mirror"],function(){
 	//获取cookie
 	//2.得到cookie
 	
@@ -55,6 +55,36 @@ require(["jquery","cookieTools"],function(){
 			}else{
 				alert("请先登录您的账号")
 			}
+		})
+		
+		
+		//添加放大镜
+		$(".box1").mirror({
+			smallBoxId: ".box1",                      
+			smallImgId: ".img01",                      
+			imgPath: "img/29652_99_.jpg",                  
+			baseLeft: 0,    //图片容器初始的left                    
+			baseTop: 0,     //图片容器初始的top                    
+			baseWidth: 420,    //图片容器的width                
+			baseHeight: 315,  //图片容器的height                    
+			mirrorWidth: 150,                     
+			mirrorHeight: 150,                    
+			multiple: 3, 
+			position:"右"
+		})
+		
+		$(".box2").mirror({
+			smallBoxId: ".box2",                      
+			smallImgId: ".img02",                      
+			imgPath: "img/29652_88_.jpg",                  
+			baseLeft: 0,    //图片容器初始的left                    
+			baseTop: 0,     //图片容器初始的top                    
+			baseWidth: 420,    //图片容器的width                
+			baseHeight: 315,  //图片容器的height                    
+			mirrorWidth: 150,                     
+			mirrorHeight: 150,                    
+			multiple: 3, 
+			position:"右"
 		})
     	
 	})
@@ -158,37 +188,40 @@ require(["jquery","cookieTools"],function(){
 	
 	//点击切换放大镜轮播
 	var space=0;
-	var show=true;
+	
 	$(".toright").click(function(){
 		space=space+270;
 		if(space<=270){
-		 	$(".nei ul").animate({left:-1*space+"px"},1000);
-		 }else{
-		 	space=270;	 	 
-		 }
-		 if(show){
-		 	show=false;
-		 	$(this).css("display","none")	
-		 }else{
-		 	$(this).css("display","block")
-		 }
-		 
+		 	$(".nei ul").animate({left:-1*space+"px"},1000);	
+		}else{
+		 	space=270;	 	
+		}	
+		goStep();
 	})
-	
 	$(".toleft").click(function(){
 		space=space-270;
 		if(space>=0){
-		 	$(".nei ul").animate({left:-1*space+"px"},1000); 	
-		 }else{
-		 	space=0; 	
-		 }
-		 
-		 if(!show){
-		 	show=true;
-		 	$(this).css("display","none")	
-		 }else{
-		 	$(this).css("display","block")
-		 }
-		 //$(this).css("display","none")
+		 	$(".nei ul").animate({left:-1*space+"px"},1000); 	 	
+		}else{
+		 	space=0; 		
+		}
+		goStep();
 	})
+	function goStep(){
+		if(space==0){
+			$(".toright").css("display","block");
+			$(".toleft").css("display","none");
+		}
+		if(space==270){
+			$(".toleft").css("display","block");
+			$(".toright").css("display","none");
+		}
+	}
+	//鼠标放上去，上面图片显示
+	$(".bottom ul").on("mouseover","li",function(){
+		//得到轮播图片的下标
+		var ord=$(this).index();
+		$(".top ul li").eq(ord).addClass("show").siblings().removeClass("show")
+	})
+	
 })

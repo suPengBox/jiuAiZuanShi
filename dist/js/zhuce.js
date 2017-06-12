@@ -12,8 +12,6 @@ require(["jquery","cookieTools"],function(){
 		$('html,body').animate({scrollTop:0},'slow');
 	})
 	
-	
-	
 	//注册
 	email   =/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/,
     pwd     = /^[\w]{8,32}$/,
@@ -21,7 +19,7 @@ require(["jquery","cookieTools"],function(){
     chn     = /^[\u0391-\uFFE5]+$/,
     idcard  = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/,
     mobile  = /^13[0-9]{1}[0-9]{8}$|15[0-9]{1}[0-9]{8}$|18[0-9]{1}[0-9]{8}$|17[0-9]{1}[0-9]{8}$/
-    prove   =/^[a-zA-Z0-9]{6}$/
+    prove   =/^[a-zA-Z0-9]{4}$/
       
     var istrue=true;
     $("#tel").blur(function(){
@@ -42,14 +40,48 @@ require(["jquery","cookieTools"],function(){
    		 }		
     });
     
+    //页面一打开，变换验证码
+	var str1="";
+	$(function(){	
+		yanzheng();
+	})	
+    
+    //点击创建验证码
+	$(".checkcode i").click(function(){
+		$(this).prev().html("");
+		yanzheng();
+	})
+    
+	function yanzheng(){
+		var str="";
+		var num=0;
+		var i=0;
+		str1="";
+		while(i<4){
+			var num=parseInt(Math.random()*127);
+			if((num>=49 && num<=57)||(num>=65 && num<=90)||(num>=97 && num<=122)){
+					str+="<img src='img/"+num+".jpg' style='width:24px;height:24px'/>";
+					str1+=String.fromCharCode(num);
+					i++;
+			}
+		}
+		$(".checkcode p").append(str);	
+	}
+    
     $("#code").blur(function(){
-    	var code=$(this).val();
+    	var code=$(this).val().toLowerCase();
+    	str1=str1.toLowerCase();
     	if(!prove.test(code)){
     		istrue=false;
-    		$(".code").html("验证码错误，请重新验证")
+    		$(".code").html("验证码输入不符合规范")
     	}else if(prove.test(code)){
-    		istrue=true;
-    		$(".code").html("")
+    		if(code==str1){
+    			istrue=true;
+    			$(".code").html("")
+    		}else{
+    			istrue=false;
+    			$(".code").html("验证码错误，请重新验证")
+    		}
     	}
     })
     
@@ -95,6 +127,8 @@ require(["jquery","cookieTools"],function(){
 		}
 	})
 	
+	
+
 	
 	//正则
 	/*email   =/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/,
